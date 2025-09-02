@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsAppTrix",
+  "version": "1.0",
+  "description": "Force WhatsApp Web users to log in with their phone number instead of scanning a QR code.",
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": [
+    "https://web.whatsapp.com/"
+  ]
+} 
