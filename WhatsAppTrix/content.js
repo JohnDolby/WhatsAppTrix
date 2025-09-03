@@ -16,14 +16,21 @@ function removeQRCodeAndClickLogin() {
     console.log('QR code canvas removed.');
 
     setTimeout(() => {
-      const loginButton = findButtonByText('Log in with phone number instead');
+      let loginButton = findButtonByText('Log in with phone number instead');
       if (loginButton) {
         loginButton.click();
         console.log('"Log in with phone number instead" button clicked.');
       } else {
-        console.log('"Log in with phone number instead" button not found.');
+        loginButton = findButtonByText('Log in with phone number');
+        if (loginButton) {
+          loginButton.click();
+          console.log('"Log in with phone number" button clicked.');
+        }
+        else {
+          console.log('"Log in with phone number" button not found.');
+        }
       }
-    }, 1500);
+    }, 170); // 170 ms to wait for the country to be detected by whatsapp
   }
 }
 
